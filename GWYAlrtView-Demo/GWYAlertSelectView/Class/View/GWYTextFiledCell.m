@@ -4,12 +4,18 @@
 //
 //  Created by 智捷科技 on 16/4/15.
 //  Copyright © 2016年 智捷科技. All rights reserved.
-//
+//============================================================================
+//  欢迎各位提宝贵的意见给我  185226139 感谢大家的支持
+// https://github.com/liguoliangiOS/GWYAlertSelectView.git
+//=============================================================================
 
 #import "GWYTextFiledCell.h"
 #import "GWYTextModel.h"
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define GWYTextFont(a) [UIFont systemFontOfSize:a]
+#define GWYCELLBorderW 10
+
 @implementation GWYTextFiledCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -28,24 +34,24 @@
     /** 内容 */
     self.content = [[UITextField alloc] init];
     self.content.borderStyle = UITextBorderStyleRoundedRect;
-    self.content.font = [UIFont systemFontOfSize:14];
+    self.content.font = GWYTextFont(14);
     self.content.backgroundColor = [UIColor whiteColor];
     [self.cellView addSubview:self.content];
     /** 标题 */
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = [UIColor darkGrayColor];
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = GWYTextFont(14);
     [self.cellView addSubview:self.titleLabel];
 }
 
 - (void)setTextCellFrame {
-    CGFloat  titleLabelX = 10;
-    CGFloat  titleLabelY = 10;
-    CGFloat  titleLabelW = 65;
-    CGFloat  titleLabelH = 30;
+    CGFloat  titleLabelX = GWYCELLBorderW;
+    CGFloat  titleLabelY = GWYCELLBorderW;
+    CGFloat  titleLabelW = 6 * GWYCELLBorderW + GWYCELLBorderW / 2;
+    CGFloat  titleLabelH = 3 * GWYCELLBorderW;
     self.titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
-    self.content.frame = CGRectMake(CGRectGetMaxX(self.titleLabel.frame) + 10, 10, SCREENWIDTH - CGRectGetMaxX(self.titleLabel.frame)-2 * 10, titleLabelH);
-    self.cellView.frame = CGRectMake(0, 0, SCREENWIDTH, CGRectGetMaxY(self.titleLabel.frame) + 10);
+    self.content.frame = CGRectMake(CGRectGetMaxX(self.titleLabel.frame) + GWYCELLBorderW, GWYCELLBorderW, SCREENWIDTH - CGRectGetMaxX(self.titleLabel.frame)-2 * GWYCELLBorderW, titleLabelH);
+    self.cellView.frame = CGRectMake(0, 0, SCREENWIDTH, CGRectGetMaxY(self.titleLabel.frame) + GWYCELLBorderW);
 }
 
 - (void)setModel:(GWYTextModel *)model {

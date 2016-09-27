@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8BDDB10C608FDC937FC540015C12C782CD89DDDE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "d477c313-a2e4-4c45-aa7c-b1a4720bdc51++3454" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8BDDB10C608FDC937FC540015C12C782CD89DDDE" : 0,
+    "d477c313-a2e4-4c45-aa7c-b1a4720bdc51++3454" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "88AFBE65-8DE6-4BAB-8423-CFF3E70863E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8BDDB10C608FDC937FC540015C12C782CD89DDDE" : "GWYAlrtView-Demo\/",
+    "d477c313-a2e4-4c45-aa7c-b1a4720bdc51++3454" : "GWYAlrtView-Demo\/GWYAlrtView-Demo\/GWYAlertSelectView\/ThirdParty\/MBProgressHUD\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GWYAlrtView-Demo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GWYAlrtView-Demo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/liguoliangiOS\/GWYAlertSelectView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8BDDB10C608FDC937FC540015C12C782CD89DDDE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/182.92.212.148:9997",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "d477c313-a2e4-4c45-aa7c-b1a4720bdc51++3454"
+    }
+  ]
+}

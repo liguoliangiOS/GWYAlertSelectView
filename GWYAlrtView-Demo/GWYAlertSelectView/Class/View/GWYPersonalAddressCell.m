@@ -4,7 +4,10 @@
 //
 //  Created by 智捷科技 on 16/4/14.
 //  Copyright © 2016年 智捷科技. All rights reserved.
-//
+//============================================================================
+//  欢迎各位提宝贵的意见给我  185226139 感谢大家的支持
+// https://github.com/liguoliangiOS/GWYAlertSelectView.git
+//=============================================================================
 
 #import "GWYPersonalAddressCell.h"
 #import "GWYAddressModel.h"
@@ -78,7 +81,7 @@
     _addressModel = addressModel;
     
     CGFloat addressNameX = GWYCELLBorderW;
-    CGFloat addressMax = SCREENWIDTH - 40;
+    CGFloat addressMax = SCREENWIDTH - 4 * GWYCELLBorderW;
     CGFloat addressNameY = GWYCELLBorderW;
     CGSize addressNameSize = [GWYTextSize sizeWithText:addressModel.name font:GWYTextFont(16) maxW:0];
     self.addressName.frame = CGRectMake(addressNameX, addressNameY, addressNameSize.width, addressNameSize.height);
@@ -92,7 +95,7 @@
     self.address.text = address;
     self.address.frame = CGRectMake(addressNameX, CGRectGetMaxY(self.addressName.frame)+ GWYCELLBorderW, addressSize.width, addressSize.height);
     self.addressView.frame = CGRectMake(0, 0, SCREENWIDTH, CGRectGetMaxY(self.address.frame));
-    self.editButton.frame = CGRectMake(SCREENWIDTH - 30, CGRectGetMidY(self.addressView.frame)- 10, 20, 20);
+    self.editButton.frame = CGRectMake(SCREENWIDTH - 3 * GWYCELLBorderW, CGRectGetMidY(self.addressView.frame)- GWYCELLBorderW, 2 * GWYCELLBorderW, 2 * GWYCELLBorderW);
 }
 
 + (CGFloat)getPersonalAddressCellHightWithModel:(GWYAddressModel *)model {

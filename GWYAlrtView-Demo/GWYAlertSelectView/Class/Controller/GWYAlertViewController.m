@@ -4,6 +4,11 @@
 //
 //  Created by 李国良 on 2016/9/22.
 //
+//============================================================================
+//  欢迎各位提宝贵的意见给我  185226139 感谢大家的支持
+// https://github.com/liguoliangiOS/GWYAlertSelectView.git
+//=============================================================================
+
 
 
 #import "GWYAlertViewController.h"
@@ -18,7 +23,12 @@
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 
+#define GWYCELLBorderW 10
 #define TABCEllHEIGHT 44.0
+#define TitltViewHeight 40
+#define ContactHeight   140
+#define AddressHeight   240
+
 @interface GWYAlertViewController ()<UITableViewDelegate, UITableViewDataSource, STPickerAreaDelegate,STPickerSingleDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UIView         * titltView;
@@ -43,7 +53,7 @@
 }
 
 - (void)addTitltView {
-    self.titltView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 40)];
+    self.titltView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, TitltViewHeight)];
     self.titltView.backgroundColor = [UIColor orangeColor];
     self.titltView.userInteractionEnabled = YES;
     self.cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -53,7 +63,7 @@
     [self.cancelBtn addTarget:self action:@selector(cancelClink:) forControlEvents:UIControlEventTouchUpInside];
     [self.titltView addSubview:self.cancelBtn];
     self.okBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.okBtn.frame = CGRectMake(SCREENWIDTH - 80, 0, 70, 40);
+    self.okBtn.frame = CGRectMake(SCREENWIDTH - 8 * GWYCELLBorderW, 0, 7 * GWYCELLBorderW, 4 * GWYCELLBorderW);
     [self.okBtn setTitle:@"确定" forState:UIControlStateNormal];
     [self.okBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.okBtn addTarget:self action:@selector(okBtnClink:) forControlEvents:UIControlEventTouchUpInside];
@@ -75,7 +85,7 @@
 }
 
 - (void)setTable {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,40, SCREENWIDTH, ((self.alertType == GWYAlertViewControllerTypeContact) ? 140 : 240)) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,4 * GWYCELLBorderW, SCREENWIDTH, ((self.alertType == GWYAlertViewControllerTypeContact) ? ContactHeight : AddressHeight)) style:UITableViewStylePlain];
     self.tableView.scrollEnabled = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -199,6 +209,12 @@
     return YES;
 }
 #pragma mark =======  获取修改后数据
+
+//=============================================================================================================================================
+/*
+ *请在下面的方法里面修改相应的信息
+ */
+//=============================================================================================================================================
 - (void)getTextModel {
     //获取Documents目录
     NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];

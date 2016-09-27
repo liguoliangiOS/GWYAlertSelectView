@@ -3,7 +3,10 @@
 //  自定义AlertView
 //
 //  Created by 李国良 on 2016/9/23.
-//
+//============================================================================
+//  欢迎各位提宝贵的意见给我  185226139 感谢大家的支持
+// https://github.com/liguoliangiOS/GWYAlertSelectView.git
+//=============================================================================
 
 
 #import "GWYAlertSelectViewController.h"
@@ -15,6 +18,7 @@
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define GWYCELLBorderW 10
 
 @interface GWYAlertSelectViewController ()<UITableViewDelegate, UITableViewDataSource, GWYPersonalContactCellDelegate, GWYPersonalAddressCellDelegate>
 
@@ -52,7 +56,7 @@
 }
 
 - (void)setTable {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,40, SCREENWIDTH, SCREENHEIGHT /2 - 40) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,4 * GWYCELLBorderW, SCREENWIDTH, SCREENHEIGHT /2 - 4 * GWYCELLBorderW) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -79,11 +83,11 @@
 }
 
 - (void)addTitltView {
-    self.titltView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 40)];
+    self.titltView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 4 * GWYCELLBorderW)];
     self.titltView.backgroundColor = [UIColor orangeColor];
     self.titltView.userInteractionEnabled = YES;
     self.addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.addBtn.frame = CGRectMake(SCREENWIDTH / 2 - 50, 0, 100, 40);
+    self.addBtn.frame = CGRectMake(SCREENWIDTH / 2 - 5 * GWYCELLBorderW, 0, GWYCELLBorderW * GWYCELLBorderW, 4 * GWYCELLBorderW);
     [self.addBtn setTitle:@"新增" forState:UIControlStateNormal];
     [self.addBtn setImage:[GWYTextSize changeImageSize:@"alert_add" scale:1.3] forState:UIControlStateNormal];
     [self.addBtn setImage:[GWYTextSize changeImageSize:@"alert_add" scale:1.3] forState:UIControlStateHighlighted];
@@ -100,7 +104,7 @@
     
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeContact) {
         self.okBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.okBtn.frame = CGRectMake(SCREENWIDTH - 80, 0, 70, 40);
+        self.okBtn.frame = CGRectMake(SCREENWIDTH - 8 * GWYCELLBorderW, 0, 7 * GWYCELLBorderW, 4 * GWYCELLBorderW);
         [self.okBtn setTitle:@"确定" forState:UIControlStateNormal];
         [self.okBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.okBtn addTarget:self action:@selector(okBtnClink:) forControlEvents:UIControlEventTouchUpInside];

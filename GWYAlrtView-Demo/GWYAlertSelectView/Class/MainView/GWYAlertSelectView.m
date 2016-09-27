@@ -4,7 +4,11 @@
 //
 //  Created by 李国良 on 2016/9/26.
 //  Copyright © 2016年 李国良. All rights reserved.
-//
+///============================================================================
+//  欢迎各位提宝贵的意见给我  185226139 感谢大家的支持
+// https://github.com/liguoliangiOS/GWYAlertSelectView.git
+//=============================================================================
+
 
 #import "GWYAlertSelectView.h"
 #import "GWYAlertViewController.h"
@@ -14,6 +18,8 @@
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+#define AlertViewContactHeight 180
+#define AlertViewAddressHeight 280
 
 @interface GWYAlertSelectView ()<GWYAlertViewControllerDelegate, GWYAlertSelectViewControllerDelegate>
 
@@ -21,10 +27,10 @@
     GWYAlertViewController * _alertViewCtl;
     GWYAlertSelectViewController * _alertSelectViewCtl;
 }
+
 @property (nonatomic, strong) UIView * blackView;
 @property (nonatomic, strong) UIView * bgView;
 @property (nonatomic, strong) NSMutableArray * editSource;
-
 
 @end
 
@@ -43,7 +49,6 @@
 }
 
 - (void)alertSelectViewshow {
-    
     if (self.bgView) return;
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREENHEIGHT, SCREENWIDTH, SCREENHEIGHT / 2)];
@@ -51,7 +56,6 @@
     self.bgView.userInteractionEnabled = YES;
     [self.bgView addSubview:[self addAlertSelectViewCtl].view];
     [self addSubview:self.bgView];
-   
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     self.blackView.userInteractionEnabled = YES;
     [self.blackView addGestureRecognizer:tap];
@@ -124,7 +128,7 @@
         _alertSelectViewCtl.view.hidden = YES;
         [self.bgView addSubview:[self addAlertViewCtl].view];
         [UIView animateWithDuration:0.4 animations:^{
-            self.bgView.y = SCREENHEIGHT - ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? 180 : 280);
+            self.bgView.y = SCREENHEIGHT - ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? AlertViewContactHeight : AlertViewAddressHeight);
         }];
     }];
 }
@@ -144,7 +148,7 @@
     (self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? ( _alertViewCtl.alertType = GWYAlertViewControllerTypeContact) : ( _alertViewCtl.alertType = GWYAlertViewControllerTypeAddress);
     _alertViewCtl.delegate = self;
     _alertViewCtl.editData = self.editSource;
-    _alertViewCtl.view.frame = CGRectMake(0, 0, SCREENWIDTH, ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? 180 : 280));
+    _alertViewCtl.view.frame = CGRectMake(0, 0, SCREENWIDTH, ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? AlertViewContactHeight : AlertViewAddressHeight));
     return _alertViewCtl;
 }
 
@@ -166,11 +170,10 @@
                 _alertSelectViewCtl.view.hidden = YES;
                 [self.bgView addSubview:[self addAlertViewCtl].view];
                 [UIView animateWithDuration:0.4 animations:^{
-                    self.bgView.y = SCREENHEIGHT  - ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? 180 : 280);
+                    self.bgView.y = SCREENHEIGHT  - ((self.addAlertViewType == GWYAlertSelectViewTypeGetContacts) ? AlertViewContactHeight : AlertViewAddressHeight);
                 }];
             }];
         }];
-        
         [_alertSelectViewCtl alertSelectViewSelectedBlock:^(NSMutableArray *selectedArray) {
             weakSelf.block(selectedArray);
             [weakSelf alertSelectViewClose];
