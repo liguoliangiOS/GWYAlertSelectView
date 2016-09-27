@@ -188,30 +188,21 @@
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeContact) {
         GWYContactModel * model = self.contactSource[indexPath.row];
         GWYPersonalContactCell *cell = (GWYPersonalContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        cell.selectButton.selected = YES;
-        [self.selectArray addObject:indexPath];
-        if (self.contactSelectSource.count > 1) {
-            for (GWYContactModel *contantModel in self.contactSelectSource) {
-                NSUInteger index = [self.contactSelectSource indexOfObject:contantModel];
-                if ([contantModel.id integerValue]  == [model.id integerValue]) {
-                    cell.selectButton.selected = NO;
-                   [self.selectArray removeObject:indexPath];
-                    [self.contactSelectSource removeObject:contantModel];
+        if (cell.selectButton.selected) {
+            cell.selectButton.selected = NO;
+            [self.selectArray removeObject:indexPath];
+            for (GWYContactModel * contantModel in self.contactSelectSource) {
+                if ([model.id integerValue] == [contantModel.id integerValue]) {
+                    [self.contactSelectSource removeObject:model];
                     break;
-                }else {
-                    if (index == self.contactSelectSource.count - 1) {
-                        cell.selectButton.selected = YES;
-                        [self.selectArray addObject:indexPath];
-                        [self.contactSelectSource addObject:model];
-                        break;
-                    }
                 }
             }
-        }else
-        {
+        } else {
+            cell.selectButton.selected = YES;
+            [self.selectArray addObject:indexPath];
             [self.contactSelectSource addObject:model];
+            
         }
-
     } else {
         GWYAddressModel * model = self.addressSource[indexPath.row];
         [self.addressSelectSource addObject: model];
@@ -233,7 +224,6 @@
 - (void)personalAddressCell:(GWYPersonalAddressCell *)cell editClink:(UIButton *)btn {
     NSMutableArray * dataArray = [NSMutableArray arrayWithObject:cell.addressModel];
     self.editBlock(dataArray);
-    NSLog(@"编辑 收货地址 - %@",cell.addressModel);
 }
 
 #pragma mark ==== GWYPersonalContactCellDelegate======
@@ -241,7 +231,6 @@
 - (void)personalcontactCell:(GWYPersonalContactCell *)cell editClink:(UIButton *)btn {
     NSMutableArray * dataArray = [NSMutableArray arrayWithObject:cell.contactModel];
     self.editBlock(dataArray);
-    NSLog(@"编辑 联系人-- %@", cell.contactModel);
 }
 
 #pragma mark ==== 懒加载 ====
