@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 @class GWYAddressModel;
-@class GWYPersonalAddressCell;
+@class GWYAddressCell;
 
-@protocol GWYPersonalAddressCellDelegate <NSObject>
+@protocol GWYAddressCellDelegate <NSObject>
 
-- (void)personalAddressCell:(GWYPersonalAddressCell *)cell editClink:(UIButton *)btn;
+- (void)personalAddressCell:(GWYAddressCell *)cell editClink:(UIButton *)btn;
 
 @end
 
 
-@interface GWYPersonalAddressCell : UITableViewCell
+@interface GWYAddressCell : UITableViewCell
 
 @property (nonatomic, strong) GWYAddressModel * addressModel;
 @property (nonatomic, strong) UIButton        * selectButton;
 @property (nonatomic, assign) BOOL isSelcet;
-@property (nonatomic, weak) id<GWYPersonalAddressCellDelegate> delegate;
+@property (nonatomic, weak) id<GWYAddressCellDelegate> delegate;
 
 + (CGFloat)getPersonalAddressCellHightWithModel:(GWYAddressModel *)model;
 + (instancetype)cellWithAddressTableView:(UITableView *)tableView model:(GWYAddressModel *)model;

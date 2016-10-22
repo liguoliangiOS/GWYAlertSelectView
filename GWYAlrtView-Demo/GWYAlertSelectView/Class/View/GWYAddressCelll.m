@@ -9,7 +9,7 @@
 // https://github.com/liguoliangiOS/GWYAlertSelectView.git
 //=============================================================================
 
-#import "GWYPersonalAddressCell.h"
+#import "GWYAddressCell.h"
 #import "GWYAddressModel.h"
 #import "GWYTextSize.h"
 
@@ -18,7 +18,7 @@
 #define GWYTextFont(a) [UIFont systemFontOfSize:a]
 #define GWYCELLBorderW 10
 
-@interface GWYPersonalAddressCell ()
+@interface GWYAddressCell ()
 
 /** 姓名 */
 @property (nonatomic, strong) UILabel  * addressName;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation GWYPersonalAddressCell
+@implementation GWYAddressCell
 
 - (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -108,9 +108,9 @@
 
 + (instancetype)cellWithAddressTableView:(UITableView *)tableView model:(GWYAddressModel *)model {
     static NSString *ID = @"addressIdentifier";
-    GWYPersonalAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    GWYAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[GWYPersonalAddressCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];  
+        cell = [[GWYAddressCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];  
     }
     cell.addressModel = model;
     return cell;

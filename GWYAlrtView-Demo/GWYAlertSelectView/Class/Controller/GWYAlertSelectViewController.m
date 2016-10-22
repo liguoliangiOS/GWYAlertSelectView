@@ -10,8 +10,8 @@
 
 
 #import "GWYAlertSelectViewController.h"
-#import "GWYPersonalAddressCell.h"
-#import "GWYPersonalContactCell.h"
+#import "GWYAddressCell.h"
+#import "GWYContactCell.h"
 #import "GWYAddressModel.h"
 #import "GWYContactModel.h"
 #import "GWYTextSize.h"
@@ -20,7 +20,7 @@
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 #define GWYCELLBorderW 10
 
-@interface GWYAlertSelectViewController ()<UITableViewDelegate, UITableViewDataSource, GWYPersonalContactCellDelegate, GWYPersonalAddressCellDelegate>
+@interface GWYAlertSelectViewController ()<UITableViewDelegate, UITableViewDataSource, GWYContactCellDelegate, GWYAddressCellDelegate>
 
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * addressSource;
@@ -151,7 +151,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeContact) {
         GWYContactModel * model = self.contactSource[indexPath.row];
-        GWYPersonalContactCell * cell = [GWYPersonalContactCell cellWithContactTableView:tableView model:model];
+        GWYContactCell * cell = [GWYContactCell cellWithContactTableView:tableView model:model];
         //解决复用问题
         cell.selectButton.tag = 100 + indexPath.row;
         cell.selectButton.selected = NO;
@@ -168,7 +168,7 @@
     }
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeAddress){
         GWYAddressModel * model = self.addressSource[indexPath.row];
-        GWYPersonalAddressCell * cell = [GWYPersonalAddressCell cellWithAddressTableView:tableView model:model];
+        GWYAddressCell * cell = [GWYAddressCell cellWithAddressTableView:tableView model:model];
         cell.delegate = self;
         return cell;
     }
@@ -178,16 +178,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeContact) {
-        return [GWYPersonalContactCell getPersonalContactCellHight];
+        return [GWYContactCell getPersonalContactCellHight];
     }
     GWYAddressModel * model = self.addressSource[indexPath.row];
-    return [GWYPersonalAddressCell getPersonalAddressCellHightWithModel:model];
+    return [GWYAddressCell getPersonalAddressCellHightWithModel:model];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.alertSelectType == GWYAlertSelectViewControllerTypeContact) {
         GWYContactModel * model = self.contactSource[indexPath.row];
-        GWYPersonalContactCell *cell = (GWYPersonalContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        GWYContactCell *cell = (GWYContactCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         if (cell.selectButton.selected) {
             cell.selectButton.selected = NO;
             [self.selectArray removeObject:indexPath];
@@ -221,14 +221,14 @@
 }
 #pragma mark ==== GWYPersonalAddressCellDelegate======
 
-- (void)personalAddressCell:(GWYPersonalAddressCell *)cell editClink:(UIButton *)btn {
+- (void)personalAddressCell:(GWYAddressCell *)cell editClink:(UIButton *)btn {
     NSMutableArray * dataArray = [NSMutableArray arrayWithObject:cell.addressModel];
     self.editBlock(dataArray);
 }
 
 #pragma mark ==== GWYPersonalContactCellDelegate======
 
-- (void)personalcontactCell:(GWYPersonalContactCell *)cell editClink:(UIButton *)btn {
+- (void)personalcontactCell:(GWYContactCell *)cell editClink:(UIButton *)btn {
     NSMutableArray * dataArray = [NSMutableArray arrayWithObject:cell.contactModel];
     self.editBlock(dataArray);
 }

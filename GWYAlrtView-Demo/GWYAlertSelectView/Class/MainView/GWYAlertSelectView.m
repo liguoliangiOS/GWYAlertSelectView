@@ -115,7 +115,6 @@
             self.bgView.y = SCREENHEIGHT / 2;
         }];
     }];
-    
 }
 
 #pragma mark ====== GWYAlertSelectViewControllerDelegate=====

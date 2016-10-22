@@ -48,8 +48,8 @@
 		21D2709F1D98CE7900F95A92 /* GWYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D2709D1D98CE7900F95A92 /* GWYAlertViewController.m */; };
 		21D270A41D98CE8700F95A92 /* GWYAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A11D98CE8700F95A92 /* GWYAddressModel.m */; };
 		21D270A51D98CE8700F95A92 /* GWYContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A31D98CE8700F95A92 /* GWYContactModel.m */; };
-		21D270AC1D98CE9900F95A92 /* GWYPersonalAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A71D98CE9900F95A92 /* GWYPersonalAddressCell.m */; };
-		21D270AD1D98CE9900F95A92 /* GWYPersonalContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A91D98CE9900F95A92 /* GWYPersonalContactCell.m */; };
+		21D270AC1D98CE9900F95A92 /* GWYAddressCelll.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A71D98CE9900F95A92 /* GWYAddressCelll.m */; };
+		21D270AD1D98CE9900F95A92 /* GWYContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270A91D98CE9900F95A92 /* GWYContactCell.m */; };
 		21D270AE1D98CE9900F95A92 /* GWYTextFiledCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270AB1D98CE9900F95A92 /* GWYTextFiledCell.m */; };
 		21D270B11D98CEA100F95A92 /* GWYTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270B01D98CEA100F95A92 /* GWYTextModel.m */; };
 		21D270B41D98CF7400F95A92 /* GWYAlertSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D270B31D98CF7400F95A92 /* GWYAlertSelectView.m */; };
@@ -152,10 +152,10 @@
 		21D270A11D98CE8700F95A92 /* GWYAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYAddressModel.m; sourceTree = "<group>"; };
 		21D270A21D98CE8700F95A92 /* GWYContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYContactModel.h; sourceTree = "<group>"; };
 		21D270A31D98CE8700F95A92 /* GWYContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYContactModel.m; sourceTree = "<group>"; };
-		21D270A61D98CE9900F95A92 /* GWYPersonalAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYPersonalAddressCell.h; sourceTree = "<group>"; };
-		21D270A71D98CE9900F95A92 /* GWYPersonalAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYPersonalAddressCell.m; sourceTree = "<group>"; };
-		21D270A81D98CE9900F95A92 /* GWYPersonalContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYPersonalContactCell.h; sourceTree = "<group>"; };
-		21D270A91D98CE9900F95A92 /* GWYPersonalContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYPersonalContactCell.m; sourceTree = "<group>"; };
+		21D270A61D98CE9900F95A92 /* GWYAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYAddressCell.h; sourceTree = "<group>"; };
+		21D270A71D98CE9900F95A92 /* GWYAddressCelll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYAddressCelll.m; sourceTree = "<group>"; };
+		21D270A81D98CE9900F95A92 /* GWYContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYContactCell.h; sourceTree = "<group>"; };
+		21D270A91D98CE9900F95A92 /* GWYContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYContactCell.m; sourceTree = "<group>"; };
 		21D270AA1D98CE9900F95A92 /* GWYTextFiledCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYTextFiledCell.h; sourceTree = "<group>"; };
 		21D270AB1D98CE9900F95A92 /* GWYTextFiledCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWYTextFiledCell.m; sourceTree = "<group>"; };
 		21D270AF1D98CEA100F95A92 /* GWYTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWYTextModel.h; sourceTree = "<group>"; };
@@ -315,10 +315,10 @@
 			children = (
 				21D270971D98CE3500F95A92 /* UIView+Frame.h */,
 				21D270981D98CE3500F95A92 /* UIView+Frame.m */,
-				21D270A61D98CE9900F95A92 /* GWYPersonalAddressCell.h */,
-				21D270A71D98CE9900F95A92 /* GWYPersonalAddressCell.m */,
-				21D270A81D98CE9900F95A92 /* GWYPersonalContactCell.h */,
-				21D270A91D98CE9900F95A92 /* GWYPersonalContactCell.m */,
+				21D270A61D98CE9900F95A92 /* GWYAddressCell.h */,
+				21D270A71D98CE9900F95A92 /* GWYAddressCelll.m */,
+				21D270A81D98CE9900F95A92 /* GWYContactCell.h */,
+				21D270A91D98CE9900F95A92 /* GWYContactCell.m */,
 				21D270AA1D98CE9900F95A92 /* GWYTextFiledCell.h */,
 				21D270AB1D98CE9900F95A92 /* GWYTextFiledCell.m */,
 			);
@@ -651,12 +651,12 @@
 				21D2709E1D98CE7900F95A92 /* GWYAlertSelectViewController.m in Sources */,
 				21D2705D1D98CDEF00F95A92 /* GTMBase64.m in Sources */,
 				21D270A41D98CE8700F95A92 /* GWYAddressModel.m in Sources */,
-				21D270AC1D98CE9900F95A92 /* GWYPersonalAddressCell.m in Sources */,
+				21D270AC1D98CE9900F95A92 /* GWYAddressCelll.m in Sources */,
 				21D270631D98CDEF00F95A92 /* JSONAPI.m in Sources */,
 				21D270991D98CE3500F95A92 /* UIView+Frame.m in Sources */,
 				21D270671D98CDEF00F95A92 /* JSONValueTransformer.m in Sources */,
 				21D270641D98CDEF00F95A92 /* JSONHTTPClient.m in Sources */,
-				21D270AD1D98CE9900F95A92 /* GWYPersonalContactCell.m in Sources */,
+				21D270AD1D98CE9900F95A92 /* GWYContactCell.m in Sources */,
 				21D270B11D98CEA100F95A92 /* GWYTextModel.m in Sources */,
 				21D270851D98CDFF00F95A92 /* GWYTextSize.m in Sources */,
 				21D2705E1D98CDEF00F95A92 /* JSONModel.m in Sources */,

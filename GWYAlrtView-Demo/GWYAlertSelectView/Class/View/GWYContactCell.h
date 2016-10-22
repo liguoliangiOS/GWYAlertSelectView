@@ -9,20 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class GWYContactModel;
-@class GWYPersonalContactCell;
+@class GWYContactCell;
 
-@protocol GWYPersonalContactCellDelegate <NSObject>
+@protocol GWYContactCellDelegate <NSObject>
 
-- (void)personalcontactCell:(GWYPersonalContactCell *)cell editClink:(UIButton *)btn;
+- (void)personalcontactCell:(GWYContactCell *)cell editClink:(UIButton *)btn;
 
 @end
 
-@interface GWYPersonalContactCell : UITableViewCell
+@interface GWYContactCell : UITableViewCell
 
 @property (nonatomic, strong) GWYContactModel * contactModel;
 @property (nonatomic, strong) UIButton *selectButton;
 @property (nonatomic, assign) BOOL isSelcet;
-@property (nonatomic, weak) id<GWYPersonalContactCellDelegate> delegate;
+@property (nonatomic, weak) id<GWYContactCellDelegate> delegate;
 
 + (CGFloat)getPersonalContactCellHight;
 + (instancetype)cellWithContactTableView:(UITableView *)tableView model:(GWYContactModel *)contactModel;

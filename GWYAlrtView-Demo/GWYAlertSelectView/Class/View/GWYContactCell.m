@@ -9,7 +9,7 @@
 // https://github.com/liguoliangiOS/GWYAlertSelectView.git
 //=============================================================================
 
-#import "GWYPersonalContactCell.h"
+#import "GWYContactCell.h"
 #import "GWYContactModel.h"
 #import "GWYTextSize.h"
 
@@ -19,7 +19,7 @@
 #define GWYCELLBorderW 10
 
 
-@interface GWYPersonalContactCell ()
+@interface GWYContactCell ()
 /** 姓名 */
 @property (nonatomic, strong) UILabel         * nameLabel;
 /** 身份证*/
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation GWYPersonalContactCell
+@implementation GWYContactCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -115,9 +115,9 @@
 
 + (instancetype)cellWithContactTableView:(UITableView *)tableView model:(GWYContactModel *)contactModel {
     static NSString *ID = @"contactIdentifier";
-    GWYPersonalContactCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    GWYContactCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[GWYPersonalContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[GWYContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     cell.contactModel = contactModel;
     return cell;

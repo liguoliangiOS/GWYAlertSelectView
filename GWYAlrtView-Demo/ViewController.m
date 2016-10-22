@@ -10,8 +10,8 @@
 #import "GWYAlertSelectView.h"
 #import "GWYAddressModel.h"
 #import "GWYContactModel.h"
-#import "GWYPersonalAddressCell.h"
-#import "GWYPersonalContactCell.h"
+#import "GWYAddressCell.h"
+#import "GWYContactCell.h"
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
@@ -62,11 +62,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         GWYContactModel * model = (GWYContactModel *)self.contactSource[indexPath.row];
-        GWYPersonalContactCell * cell = [GWYPersonalContactCell cellWithContactTableView:tableView model:model];
+        GWYContactCell * cell = [GWYContactCell cellWithContactTableView:tableView model:model];
         return cell;
     }
     GWYAddressModel * adressModel = (GWYAddressModel *)self.addressSource[indexPath.row];
-    GWYPersonalAddressCell * cell = [GWYPersonalAddressCell cellWithAddressTableView:tableView model:adressModel];
+    GWYAddressCell * cell = [GWYAddressCell cellWithAddressTableView:tableView model:adressModel];
     return cell;
 }
 
@@ -74,11 +74,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return [GWYPersonalContactCell getPersonalContactCellHight];
+        return [GWYContactCell getPersonalContactCellHight];
     }
     GWYAddressModel * adressModel = (GWYAddressModel *)self.addressSource[indexPath.row];
     
-    return [GWYPersonalAddressCell getPersonalAddressCellHightWithModel:adressModel];
+    return [GWYAddressCell getPersonalAddressCellHightWithModel:adressModel];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
